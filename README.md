@@ -16,6 +16,8 @@ The showcase is the storefront for an enterprise AI-agent portfolio built inside
 
 If you are reading this on GitHub: open the live site for the intended experience. If you are reading this as a recruiter doing a code review: keep scrolling — the "How recruiters should evaluate this" section below is for you.
 
+> **Looking for the wider proof-of-work?** The [`showcase/`](./showcase/README.md) folder is the navigation layer across Wes's GitHub repos — top projects, reading paths (10 min / 30 min / deep dive), and a [project matrix](./showcase/project-matrix.md) that maps each repo to its hiring signal.
+
 ## What it demonstrates
 
 This repository is itself a small piece of proof-of-work. It demonstrates:
