@@ -1,1217 +1,501 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wes Shelton — AI Agent Architect</title>
-<meta name="description" content="Wes Shelton — AI Agent Architect & IT Project Manager. Designing, building, and governing enterprise AI agents in the Microsoft 365 / Copilot Studio ecosystem.">
+<title>Wes Shelton | AI Enablement and Project Delivery</title>
+<meta name="description" content="Wes Shelton, Plymouth, MI. Practical AI and automation, built around the work. AI enablement, HR and benefits technology, and benefits operations.">
 <meta name="author" content="Wes Shelton">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://automater89.github.io/Agent-Showcase/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Wes Shelton — AI Agent Architect">
-<meta property="og:description" content="Enterprise AI agent portfolio built in Microsoft 365 & Copilot Studio — turning manual work into measurable outcomes across IT, HR, Legal, and Learning.">
+<meta property="og:title" content="Wes Shelton | AI Enablement and Project Delivery">
+<meta property="og:description" content="Practical AI and automation, built around the work.">
 <meta property="og:url" content="https://automater89.github.io/Agent-Showcase/">
-<meta property="og:site_name" content="Wes Shelton — Agent Showcase">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Wes Shelton — AI Agent Architect">
-<meta name="twitter:description" content="Enterprise AI agent portfolio built in Microsoft 365 & Copilot Studio — turning manual work into measurable outcomes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 <style>
-/* ─── DESIGN SYSTEM ──────────────────────────── */
-:root, [data-theme="light"] {
-  --color-bg:              #f5f4f0;
-  --color-surface:         #faf9f7;
-  --color-surface-2:       #ffffff;
-  --color-surface-offset:  #eeecea;
-  --color-surface-dynamic: #e4e1dc;
-  --color-divider:         #dbd8d3;
-  --color-border:          oklch(from #28251d l c h / 0.10);
-  --color-text:            #1c1a16;
-  --color-text-muted:      #6b6965;
-  --color-text-faint:      #b2b0ac;
-  --color-text-inverse:    #faf9f7;
-  --color-primary:         #006e74;
-  --color-primary-hover:   #005359;
-  --color-primary-light:   #e0f0f0;
-  --color-gold:            #b07800;
-  --color-gold-light:      #fdf3d7;
-  --color-blue:            #1a5c8a;
-  --color-blue-light:      #e0eef8;
-  --color-success:         #3a7020;
-  --color-success-light:   #e5f2db;
-  --shadow-sm:  0 1px 3px oklch(0.2 0.01 80 / 0.06);
-  --shadow-md:  0 4px 16px oklch(0.2 0.01 80 / 0.08), 0 1px 3px oklch(0.2 0.01 80 / 0.04);
-  --shadow-lg:  0 12px 40px oklch(0.2 0.01 80 / 0.12), 0 2px 8px oklch(0.2 0.01 80 / 0.06);
-  --shadow-xl:  0 24px 64px oklch(0.2 0.01 80 / 0.16);
-  --radius-sm:  0.375rem;
-  --radius-md:  0.5rem;
-  --radius-lg:  0.875rem;
-  --radius-xl:  1.25rem;
-  --radius-2xl: 2rem;
-  --radius-full: 9999px;
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body:    'DM Sans', 'Helvetica Neue', sans-serif;
-  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
-  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
-  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
-  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
-  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
-  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
-  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
-  --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
-  --space-8: 2rem;    --space-10: 2.5rem; --space-12: 3rem;
-  --space-16: 4rem;   --space-20: 5rem;   --space-24: 6rem;
-  --content-narrow: 640px;
-  --content-default: 960px;
-  --content-wide: 1200px;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+:root{
+  --bg:#F7F5F0; --surface:#FFFFFF; --surface-2:#FBFAF7; --ink:#14233A; --ink-2:#26324A; --muted:#3B4658; --muted-2:#5A6372;
+  --line:#E3DED3; --line-2:#CFC8BA; --teal:#0F6E6E; --teal-dark:#0B4F4F; --teal-soft:#EEF6F4; --chip:#EFEBE3;
+  --serif:'Source Serif 4', Georgia, serif; --sans:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
 }
-[data-theme="dark"] {
-  --color-bg:              #141210;
-  --color-surface:         #1a1815;
-  --color-surface-2:       #1f1d1a;
-  --color-surface-offset:  #252320;
-  --color-surface-dynamic: #2d2b28;
-  --color-divider:         #2e2c29;
-  --color-border:          oklch(from #cdccca l c h / 0.12);
-  --color-text:            #cccbc8;
-  --color-text-muted:      #7d7c79;
-  --color-text-faint:      #514f4c;
-  --color-text-inverse:    #1a1815;
-  --color-primary:         #3f9ea8;
-  --color-primary-hover:   #2d8a95;
-  --color-primary-light:   #1e3336;
-  --color-gold:            #d4a03a;
-  --color-gold-light:      #2e2410;
-  --color-blue:            #5191c4;
-  --color-blue-light:      #1a2a38;
-  --color-success:         #62a042;
-  --color-success-light:   #1c2e14;
-  --shadow-sm:  0 1px 3px oklch(0 0 0 / 0.2);
-  --shadow-md:  0 4px 16px oklch(0 0 0 / 0.28);
-  --shadow-lg:  0 12px 40px oklch(0 0 0 / 0.38);
-  --shadow-xl:  0 24px 64px oklch(0 0 0 / 0.5);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --color-bg: #141210; --color-surface: #1a1815; --color-surface-2: #1f1d1a;
-    --color-surface-offset: #252320; --color-surface-dynamic: #2d2b28;
-    --color-divider: #2e2c29; --color-border: oklch(from #cdccca l c h / 0.12);
-    --color-text: #cccbc8; --color-text-muted: #7d7c79; --color-text-faint: #514f4c;
-    --color-text-inverse: #1a1815; --color-primary: #3f9ea8;
-    --color-primary-hover: #2d8a95; --color-primary-light: #1e3336;
-    --color-gold: #d4a03a; --color-gold-light: #2e2410;
-    --color-blue: #5191c4; --color-blue-light: #1a2a38;
-    --color-success: #62a042; --color-success-light: #1c2e14;
-  }
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+a{color:var(--teal)} a:hover{color:var(--teal-dark)}
+a:focus-visible,button:focus-visible,[tabindex="-1"]:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.15}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:6px;z-index:10}
+.skip:focus{left:16px}
 
-/* ─── RESET & BASE ───────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--space-20); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-body { font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background: var(--color-bg); line-height: 1.6; min-height: 100dvh; }
-img { display: block; max-width: 100%; height: auto; }
-ul[role="list"] { list-style: none; }
-h1,h2,h3,h4,h5,h6 { text-wrap: balance; line-height: 1.2; }
-p { text-wrap: pretty; }
-button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
-a, button, [role="button"] { transition: all 160ms var(--ease-out); }
-::selection { background: oklch(from var(--color-primary) l c h / 0.2); color: var(--color-text); }
-:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-}
+/* header */
+.site-header{border-bottom:1px solid var(--line);background:var(--bg)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:80px;padding-top:8px;padding-bottom:8px}
+.brand{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);text-decoration:none}
+.nav{display:flex;flex-wrap:wrap;column-gap:32px;font-weight:500}
+.nav a{color:var(--ink);text-decoration:none;min-height:44px;display:flex;align-items:center}
+.nav a:hover{color:var(--teal);text-decoration:underline}
 
-/* ─── LAYOUT UTILITIES ───────────────────────── */
-.container { max-width: var(--content-wide); margin-inline: auto; padding-inline: clamp(var(--space-4), 4vw, var(--space-12)); }
-.container--narrow { max-width: var(--content-default); margin-inline: auto; padding-inline: clamp(var(--space-4), 4vw, var(--space-12)); }
+/* hero */
+.hero{padding:72px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:48px;align-items:end}
+.eyebrow{font-size:14px;font-weight:600;letter-spacing:.08em;color:var(--teal)}
+.hero h1{font-size:clamp(38px,5.5vw,64px);line-height:1.08;letter-spacing:-.01em;margin:20px 0}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:700px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:8px;font-size:17px;font-weight:600;text-decoration:none;cursor:pointer;font-family:inherit;transition:background-color .15s,border-color .15s,color .15s}
+.btn-primary{background:var(--teal);color:#fff;border:0}.btn-primary:hover{background:var(--teal-dark);color:#fff}
+.btn-secondary{border:1.5px solid #B9B2A4;color:var(--ink);background:transparent}.btn-secondary:hover{border-color:var(--ink);color:var(--ink)}
+.glance{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;margin:0;display:grid;gap:18px;font-size:15px}
+.glance dt{font-size:13px;font-weight:600;color:var(--muted-2)}
+.glance dd{margin:4px 0 0;font-weight:500;line-height:1.5}
 
-/* ─── NAV ─────────────────────────────────────── */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: color-mix(in oklch, var(--color-bg) 92%, transparent);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-border);
-}
-.nav__inner {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-block: var(--space-4);
-}
-.nav__logo {
-  display: flex; align-items: center; gap: var(--space-2);
-  text-decoration: none; color: var(--color-text);
-}
-.nav__logo-mark {
-  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-  background: var(--color-primary); border-radius: var(--radius-md);
-}
-.nav__logo-mark svg { color: white; }
-.nav__name { font-family: var(--font-display); font-size: var(--text-lg); font-style: italic; letter-spacing: -0.01em; }
-.nav__links { display: flex; align-items: center; gap: var(--space-6); }
-.nav__links a { text-decoration: none; font-size: var(--text-sm); color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.01em; }
-.nav__links a:hover { color: var(--color-text); }
-.nav__actions { display: flex; align-items: center; gap: var(--space-3); }
-.btn-theme {
-  width: 36px; height: 36px; border-radius: var(--radius-full);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--color-text-muted); background: var(--color-surface-offset);
-}
-.btn-theme:hover { color: var(--color-text); background: var(--color-surface-dynamic); }
-.btn-contact {
-  background: var(--color-primary); color: white;
-  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
-  font-size: var(--text-sm); font-weight: 600; text-decoration: none;
-  display: inline-flex; align-items: center; gap: var(--space-2);
-}
-.btn-contact:hover { background: var(--color-primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-@media (max-width: 768px) {
-  .nav__links { display: none; }
-  .nav__logo-name { display: none; }
-}
+/* sections */
+section{scroll-margin-top:16px}
+.band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section{padding:88px 0}
+.section h2{font-size:clamp(28px,3.2vw,40px)}
+.intro{font-size:17px;color:var(--muted);max-width:760px;margin-top:12px}
 
-/* ─── HERO ────────────────────────────────────── */
-.hero {
-  position: relative; overflow: hidden;
-  padding-block: clamp(var(--space-16), 10vw, var(--space-24)) clamp(var(--space-12), 8vw, var(--space-20));
-}
-.hero__bg {
-  position: absolute; inset: 0; z-index: 0;
-}
-.hero__bg img {
-  width: 100%; height: 100%; object-fit: cover; opacity: 0.12;
-  filter: saturate(0.8);
-}
-[data-theme="dark"] .hero__bg img { opacity: 0.22; }
-.hero__overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(in oklch 160deg,
-    oklch(from var(--color-bg) l c h / 0.85) 0%,
-    oklch(from var(--color-bg) l c h / 0.72) 50%,
-    oklch(from var(--color-bg) l c h / 0.94) 100%);
-}
-.hero__content { position: relative; z-index: 2; }
-.hero__inner { display: grid; gap: var(--space-8); }
-.hero__eyebrow {
-  display: inline-flex; align-items: center; gap: var(--space-2);
-  background: var(--color-primary-light); color: var(--color-primary);
-  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
-  font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-}
-.hero__headline {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl); font-weight: 400;
-  line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--color-text); max-width: 16ch;
-}
-.hero__headline em { font-style: italic; color: var(--color-primary); }
-.hero__sub {
-  font-size: var(--text-lg); color: var(--color-text-muted); max-width: 52ch;
-  line-height: 1.55; font-weight: 300;
-}
-.hero__stats {
-  display: flex; flex-wrap: wrap; gap: var(--space-6);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
-}
-.hero__stat-num {
-  font-family: var(--font-display); font-size: var(--text-2xl);
-  font-weight: 400; letter-spacing: -0.02em; color: var(--color-text);
-  line-height: 1;
-}
-.hero__stat-label {
-  font-size: var(--text-xs); color: var(--color-text-muted);
-  text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600;
-  margin-top: var(--space-1);
-}
-.hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
-.btn-primary {
-  background: var(--color-primary); color: white;
-  padding: var(--space-3) var(--space-6); border-radius: var(--radius-full);
-  font-size: var(--text-sm); font-weight: 600; text-decoration: none;
-  display: inline-flex; align-items: center; gap: var(--space-2);
-  box-shadow: var(--shadow-sm);
-}
-.btn-primary:hover { background: var(--color-primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn-secondary {
-  background: transparent; color: var(--color-text);
-  padding: var(--space-3) var(--space-6); border-radius: var(--radius-full);
-  font-size: var(--text-sm); font-weight: 500; text-decoration: none;
-  display: inline-flex; align-items: center; gap: var(--space-2);
-  border: 1px solid var(--color-border);
-}
-.btn-secondary:hover { background: var(--color-surface-offset); border-color: var(--color-text-faint); }
+/* work */
+.work-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:start;margin-bottom:40px}
+.lane-label{font-size:14px;font-weight:600;color:var(--muted-2);margin-bottom:12px}
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lane{min-height:56px;padding:10px 16px;border-radius:8px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font:600 16px var(--sans);cursor:pointer}
+.lane[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.lane-extra{margin-top:10px;min-height:44px;padding:0 4px;border:0;background:transparent;color:var(--teal);font:600 15px var(--sans);cursor:pointer;text-underline-offset:4px}
+.lane-extra[aria-pressed="true"]{text-decoration:underline}
+.cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{display:flex;flex-direction:column;gap:16px;padding:32px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.card h3{font-size:24px;line-height:1.25}
+.card .copy{color:var(--muted);flex-grow:1}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.badge{display:inline-flex;align-items:center;min-height:28px;padding:2px 12px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent}
+.badge.work{background:var(--ink);color:#fff}
+.badge.contrib{background:#DCEFEC;color:var(--teal-dark);border-color:#9CCFC7}
+.badge.summary{background:#ECE8DF;color:#3A3F4A;border-color:var(--line-2)}
+.badge.sim{background:#FFF4DE;color:#6B4700;border:1px dashed #C9B48A}
+.status{font-size:14px;color:var(--muted-2)}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{padding:4px 10px;border-radius:6px;background:var(--chip);font-size:13px;font-weight:500;color:var(--muted)}
+.card-btn{align-self:flex-start;min-height:46px;padding:0 20px;border-radius:8px;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);font:600 15px var(--sans);cursor:pointer}
+.card-btn:hover{background:var(--ink);color:#fff}
 
-/* ─── IMPACT BAND ─────────────────────────────── */
-.impact-band {
-  background: var(--color-primary);
-  padding-block: var(--space-10);
-  overflow: hidden;
-}
-.impact-band__inner {
-  display: flex; gap: var(--space-12); align-items: center;
-  justify-content: center; flex-wrap: wrap;
-}
-.impact-item { text-align: center; color: white; }
-.impact-item__num {
-  font-family: var(--font-display); font-size: var(--text-2xl);
-  font-weight: 400; line-height: 1;
-  color: white;
-}
-.impact-item__label {
-  font-size: var(--text-xs); text-transform: uppercase;
-  letter-spacing: 0.08em; font-weight: 600;
-  color: oklch(from white l c h / 0.7); margin-top: var(--space-1);
-}
-.impact-divider { width: 1px; height: 48px; background: oklch(from white l c h / 0.25); }
-@media (max-width: 640px) { .impact-divider { display: none; } }
+/* detail */
+.detail{border:1px solid var(--line);border-radius:12px;background:var(--surface-2);padding:40px 48px 48px}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:8px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font:600 15px var(--sans);cursor:pointer;margin-bottom:28px}
+.detail h3{font-size:clamp(28px,3vw,40px);margin-top:14px}
+.detail-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:48px;margin-top:28px;align-items:start}
+.label,.detail-main p.label{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.04em;line-height:1.4;color:var(--teal);margin:0 0 12px}
+.detail-main p{font-size:18px;line-height:1.65;color:var(--ink-2);margin-bottom:18px}
+.aside{display:grid;gap:24px}
+.aside ul.list{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--ink-2)}
+.scope{background:var(--teal-soft);border-radius:10px;padding:20px}
+.scope h4{margin:0 0 8px;font-size:14px;color:var(--teal-dark)}
+.scope p{font-size:15px;color:var(--ink-2)}
+.measures{margin:8px 0 0;padding:24px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.measures figcaption{font-weight:600;margin-bottom:16px}
+.measures dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.measures div{display:flex;flex-direction:column-reverse;gap:4px}
+.measures dt{font-size:14px;color:var(--muted-2)}
+.measures dd{margin:0;font-family:var(--serif);font-size:30px;font-weight:600}
+.measures p.note{font-size:14px;color:var(--muted-2);margin-top:16px}
 
-/* ─── SECTION HEADER ──────────────────────────── */
-.section-header { margin-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
-.section-label {
-  font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.09em;
-  font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-3);
-}
-.section-title {
-  font-family: var(--font-display); font-size: var(--text-2xl);
-  font-weight: 400; letter-spacing: -0.02em; line-height: 1.15;
-  color: var(--color-text);
-}
-.section-title em { font-style: italic; }
-.section-desc {
-  font-size: var(--text-base); color: var(--color-text-muted);
-  max-width: 60ch; margin-top: var(--space-3); line-height: 1.6;
-}
+/* portfolio */
+.port{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.port li{display:flex;flex-direction:column;gap:12px;padding:28px;border:1.5px dashed #C9B48A;border-radius:12px;background:var(--surface)}
+.port h3{font-size:22px;line-height:1.3}
+.port p{color:var(--muted);flex-grow:1;font-size:15px}
+.port a{font-weight:600;min-height:44px;display:flex;align-items:center}
 
-/* ─── FEATURED AGENTS ─────────────────────────── */
-.agents-section { padding-block: clamp(var(--space-16), 8vw, var(--space-24)); }
-.agents-intro { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; margin-bottom: clamp(var(--space-12), 6vw, var(--space-20)); }
-@media (max-width: 768px) { .agents-intro { grid-template-columns: 1fr; gap: var(--space-8); } }
-.agents-intro__image { border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); }
-.agents-intro__image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.agents-intro__text { display: flex; flex-direction: column; justify-content: center; gap: var(--space-6); }
-.agents-intro__lead { font-size: var(--text-lg); line-height: 1.6; font-weight: 300; color: var(--color-text-muted); }
-.agents-intro__lead strong { color: var(--color-text); font-weight: 600; }
+/* experience */
+.exp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.exp p{font-size:18px;line-height:1.65;color:var(--ink-2);margin-top:20px}
+.bridge{list-style:none;margin:0;padding:0}
+.bridge li{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.bridge li:last-child{border-bottom:0}
+.bridge .n{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--teal);width:32px;flex-shrink:0}
+.bridge strong{display:block;font-size:18px}
+.bridge span.d{font-size:15px;color:var(--muted-2)}
 
-/* Domain tabs */
-.domain-tabs { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-8); }
-.domain-tab {
-  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
-  font-size: var(--text-sm); font-weight: 500; cursor: pointer;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface); color: var(--color-text-muted);
-  transition: all 160ms var(--ease-out);
-}
-.domain-tab:hover { background: var(--color-surface-offset); color: var(--color-text); }
-.domain-tab.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+/* how */
+.how{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.how li{padding-top:20px;border-top:3px solid var(--teal)}
+.how h3{font-family:var(--sans);font-size:20px;margin-bottom:10px}
+.how p{color:var(--muted)}
 
-/* Agent cards grid */
-.agents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: var(--space-5); }
-.agent-card {
-  background: var(--color-surface); border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border); overflow: hidden;
-  box-shadow: var(--shadow-sm); cursor: pointer;
-  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
-  display: flex; flex-direction: column;
-}
-.agent-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.agent-card__top {
-  height: 6px; width: 100%;
-}
-.agent-card__body { padding: var(--space-6); flex: 1; display: flex; flex-direction: column; gap: var(--space-4); }
-.agent-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
-.agent-card__name { font-size: var(--text-lg); font-weight: 600; color: var(--color-text); line-height: 1.25; }
-.agent-card__score {
-  display: flex; align-items: center; gap: var(--space-1);
-  background: var(--color-gold-light); color: var(--color-gold);
-  padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
-  font-size: var(--text-xs); font-weight: 700; white-space: nowrap; flex-shrink: 0;
-}
-.agent-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; flex: 1; }
-.agent-card__footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
-.agent-card__impact {
-  font-size: var(--text-xs); color: var(--color-text-muted);
-  display: flex; align-items: center; gap: var(--space-1);
-}
-.agent-card__impact strong { color: var(--color-text); font-weight: 600; }
-.status-badge {
-  padding: 3px var(--space-3); border-radius: var(--radius-full);
-  font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.03em;
-}
-.status-active { background: var(--color-success-light); color: var(--color-success); }
-.status-pilot { background: var(--color-blue-light); color: var(--color-blue); }
-.agent-card[data-hidden="true"] { display: none; }
+/* contact */
+.contact{background:var(--ink);color:#fff;padding:96px 0 40px}
+.contact a{color:#9FDCD3}.contact a:hover{color:#fff}
+.contact-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:48px;align-items:end}
+.contact h2{font-size:clamp(30px,3.6vw,44px);color:#fff}
+.contact p{font-size:18px;color:#D5DCE6;margin-top:20px}
+.btn-light{background:#fff;color:var(--ink)}.btn-light:hover{background:#E6ECF3;color:var(--ink)}
+.btn-outline-light{border:1.5px solid #6F7F96;color:#fff !important}.btn-outline-light:hover{border-color:#fff}
+.contact dl{margin:0;display:grid;gap:16px}
+.contact dt{font-size:13px;font-weight:600;color:#AEB9C8}
+.contact dd{margin:2px 0 0}
+.copy-btn{min-height:36px;padding:0 12px;border-radius:6px;border:1px solid #6F7F96;background:transparent;color:#fff;font:600 13px var(--sans);cursor:pointer}
+.copy-btn:hover{border-color:#fff}
+.footer{margin-top:64px;padding-top:28px;border-top:1px solid #33445E;font-size:14px;color:#AEB9C8}
 
-/* ─── IMPACT STORY ─────────────────────────────── */
-.impact-section {
-  padding-block: clamp(var(--space-16), 8vw, var(--space-24));
-  background: var(--color-surface);
-}
-.impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
-@media (max-width: 768px) { .impact-grid { grid-template-columns: 1fr; } }
-.impact-card {
-  background: var(--color-surface-2); border-radius: var(--radius-xl);
-  padding: var(--space-8); border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-5);
-  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
-}
-.impact-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.impact-card--featured {
-  grid-column: 1 / -1;
-  flex-direction: row; align-items: center; gap: var(--space-10);
-}
-@media (max-width: 768px) { .impact-card--featured { flex-direction: column; } }
-.impact-card__icon {
-  width: 48px; height: 48px; border-radius: var(--radius-md);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.impact-card__title { font-size: var(--text-lg); font-weight: 600; color: var(--color-text); }
-.impact-card__body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
-.impact-card__metric {
-  font-family: var(--font-display); font-size: var(--text-2xl);
-  font-weight: 400; letter-spacing: -0.02em; color: var(--color-text);
-  line-height: 1; margin-top: auto;
-}
-.impact-card__metric-label { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+[hidden]{display:none !important}
 
-/* ─── DOMAIN BREAKDOWN ─────────────────────────── */
-.domain-section { padding-block: clamp(var(--space-16), 8vw, var(--space-24)); }
-.domain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px,100%), 1fr)); gap: var(--space-4); }
-.domain-card {
-  background: var(--color-surface); border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl); padding: var(--space-6);
-  display: flex; flex-direction: column; gap: var(--space-3);
-  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+@media (max-width:900px){
+  .hero .wrap,.work-head,.detail-grid,.exp,.contact-grid{grid-template-columns:1fr}
+  .cards,.port{grid-template-columns:1fr}
+  .how{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .exp{gap:24px}
 }
-.domain-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.domain-card__count {
-  font-family: var(--font-display); font-size: var(--text-xl);
-  font-weight: 400; color: var(--color-text); line-height: 1;
+@media (max-width:600px){
+  .wrap{padding:0 20px}
+  .hero{padding:44px 0 44px}
+  .section{padding:52px 0}
+  .lanes{grid-template-columns:1fr}
+  .lane{text-align:left}
+  .how{grid-template-columns:1fr;gap:22px}
+  .card{padding:22px}
+  .detail{padding:24px 20px 28px}
+  .measures dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .actions .btn{width:100%}
+  .contact{padding:56px 0 28px}
+  .nav{column-gap:20px}
 }
-.domain-card__name { font-size: var(--text-base); font-weight: 600; color: var(--color-text); }
-.domain-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
-.domain-card__bar { height: 4px; border-radius: var(--radius-full); margin-top: var(--space-2); }
-
-/* ─── SKILLS / TOOLS ──────────────────────────── */
-.tools-section {
-  padding-block: clamp(var(--space-16), 8vw, var(--space-24));
-  background: var(--color-surface);
-}
-.tools-scroll-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
-.tools-track {
-  display: flex; gap: var(--space-3); width: max-content;
-  animation: scroll-tools 28s linear infinite;
-}
-.tools-track:hover { animation-play-state: paused; }
-@keyframes scroll-tools {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.tool-pill {
-  display: flex; align-items: center; gap: var(--space-2);
-  background: var(--color-surface-2); border: 1px solid var(--color-border);
-  border-radius: var(--radius-full); padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm); font-weight: 500; white-space: nowrap;
-  color: var(--color-text-muted);
-}
-.tool-pill img { width: 18px; height: 18px; border-radius: 3px; }
-
-/* ─── TIMELINE ─────────────────────────────────── */
-.timeline-section { padding-block: clamp(var(--space-16), 8vw, var(--space-24)); }
-.timeline { position: relative; }
-.timeline::before {
-  content: ''; position: absolute; left: 20px; top: 8px; bottom: 8px;
-  width: 2px; background: var(--color-divider);
-}
-.timeline-item { display: flex; gap: var(--space-6); padding-bottom: var(--space-8); position: relative; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-dot {
-  width: 40px; height: 40px; border-radius: var(--radius-full);
-  background: var(--color-surface-2); border: 2px solid var(--color-primary);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; position: relative; z-index: 1;
-  color: var(--color-primary);
-}
-.timeline-content { flex: 1; padding-top: var(--space-2); }
-.timeline-date { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; color: var(--color-text-faint); margin-bottom: var(--space-2); }
-.timeline-title { font-size: var(--text-lg); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-2); }
-.timeline-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
-
-/* ─── MODAL ────────────────────────────────────── */
-.modal-backdrop {
-  position: fixed; inset: 0; z-index: 200;
-  background: oklch(0.1 0.01 80 / 0.6); backdrop-filter: blur(8px);
-  display: flex; align-items: center; justify-content: center; padding: var(--space-4);
-  opacity: 0; visibility: hidden; transition: opacity 220ms var(--ease-out), visibility 220ms;
-}
-.modal-backdrop.open { opacity: 1; visibility: visible; }
-.modal {
-  background: var(--color-surface-2); border-radius: var(--radius-2xl);
-  width: 100%; max-width: 560px; max-height: 85vh; overflow-y: auto;
-  box-shadow: var(--shadow-xl); border: 1px solid var(--color-border);
-  transform: scale(0.95) translateY(8px);
-  transition: transform 220ms var(--ease-out);
-}
-.modal-backdrop.open .modal { transform: scale(1) translateY(0); }
-.modal__header {
-  padding: var(--space-8) var(--space-8) var(--space-6);
-  border-bottom: 1px solid var(--color-border);
-  display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4);
-}
-.modal__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; letter-spacing: -0.01em; }
-.modal__close {
-  width: 32px; height: 32px; border-radius: var(--radius-full);
-  background: var(--color-surface-offset); color: var(--color-text-muted);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.modal__close:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
-.modal__body { padding: var(--space-6) var(--space-8) var(--space-8); display: flex; flex-direction: column; gap: var(--space-5); }
-.modal__desc { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.65; }
-.modal__meta { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-.modal__meta-item { background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-4); }
-.modal__meta-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; color: var(--color-text-faint); margin-bottom: var(--space-1); }
-.modal__meta-value { font-size: var(--text-base); font-weight: 600; color: var(--color-text); }
-.modal__capabilities h4 { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--color-text-muted); margin-bottom: var(--space-3); }
-.modal__cap-list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.modal__cap { background: var(--color-primary-light); color: var(--color-primary); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600; }
-
-/* ─── CTA SECTION ─────────────────────────────── */
-.cta-section {
-  padding-block: clamp(var(--space-16), 8vw, var(--space-20));
-  text-align: center;
-}
-.cta-section .section-title { text-align: center; margin-inline: auto; margin-bottom: var(--space-6); }
-.cta-section p { font-size: var(--text-base); color: var(--color-text-muted); max-width: 55ch; margin-inline: auto; margin-bottom: var(--space-8); }
-.cta-buttons { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
-
-/* ─── FOOTER ──────────────────────────────────── */
-.footer {
-  background: var(--color-surface); border-top: 1px solid var(--color-border);
-  padding-block: var(--space-8);
-}
-.footer__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
-.footer__copy { font-size: var(--text-xs); color: var(--color-text-faint); }
-.footer__tagline { font-family: var(--font-display); font-style: italic; font-size: var(--text-sm); color: var(--color-text-muted); }
-
-/* ─── SCROLL REVEALS ──────────────────────────── */
-.reveal {
-  opacity: 1;
-}
-@supports (animation-timeline: scroll()) {
-  .reveal {
-    opacity: 0;
-    animation: fade-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 75%;
-  }
-  @keyframes fade-reveal { to { opacity: 1; } }
-}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- NAV -->
-<nav class="nav" aria-label="Main navigation">
-  <div class="container nav__inner">
-    <a href="#" class="nav__logo" aria-label="Wes Shelton Home">
-      <div class="nav__logo-mark">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-        </svg>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Wes Shelton</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Selected Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#how">How I Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section id="top" class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">AI ENABLEMENT AND ADOPTION | PROJECT DELIVERY</p>
+      <h1>Practical AI and automation, built around the work.</h1>
+      <p class="lead">I help teams understand their workflows, choose practical uses for AI and automation, and support the people using them. My experience connects HR and benefits operations with IT project delivery, Microsoft 365, and user enablement.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#work">Explore Selected Work</a>
+        <a class="btn btn-secondary" href="#contact">Get in touch</a>
       </div>
-      <span class="nav__name">Wes Shelton</span>
-    </a>
-    <div class="nav__links" role="list">
-      <a href="#agents" role="listitem">AI Agents</a>
-      <a href="#impact" role="listitem">Impact</a>
-      <a href="#domains" role="listitem">Domains</a>
-      <a href="#journey" role="listitem">Journey</a>
     </div>
-    <div class="nav__actions">
-      <button class="btn-theme" data-theme-toggle aria-label="Toggle dark mode">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <dl class="glance">
+      <div><dt>Location</dt><dd>Plymouth, MI</dd></div>
+      <div><dt>Open to</dt><dd>AI enablement, HR and benefits technology, benefits operations</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:wshelton89@gmail.com?subject=Portfolio%20inquiry">wshelton89@gmail.com</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="work" class="band section" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="work-head">
+      <div>
+        <h2 id="work-h">Selected Work</h2>
+        <p class="intro" id="lane-intro"></p>
+      </div>
+      <div>
+        <p class="lane-label" id="lane-label">View work for</p>
+        <div class="lanes" role="group" aria-labelledby="lane-label">
+          <button type="button" class="lane" data-lane="ai">AI Enablement</button>
+          <button type="button" class="lane" data-lane="hr">HR &amp; Benefits Technology</button>
+          <button type="button" class="lane" data-lane="ops">Benefits Operations</button>
+        </div>
+        <button type="button" class="lane-extra" data-lane="intake">Also: Intake &amp; Process Governance</button>
+      </div>
+    </div>
+
+    <ul class="cards" id="cards"></ul>
+
+    <article class="detail" id="detail" hidden aria-labelledby="detail-title">
+      <button type="button" class="back" id="back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        <span id="back-text">Back to work</span>
       </button>
-      <a href="mailto:WShelton89@Gmail.com" class="btn-contact">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Contact
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" aria-labelledby="hero-headline">
-  <div class="hero__bg" aria-hidden="true">
-    <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/688d93f1-040a-4670-bec7-35c5fe467e50.png" alt="" width="1600" height="900">
-  </div>
-  <div class="hero__overlay" aria-hidden="true"></div>
-  <div class="hero__content">
-    <div class="container">
-      <div class="hero__inner">
-        <div>
-          <div class="hero__eyebrow">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>
-            AI Agent Architect &amp; IT Project Manager
-          </div>
+      <div class="meta" id="detail-meta"></div>
+      <h3 id="detail-title" tabindex="-1"></h3>
+      <div class="detail-grid">
+        <div class="detail-main">
+          <p class="label">MY CONTRIBUTION</p>
+          <div id="detail-paras"></div>
+          <figure class="measures" id="measures" hidden>
+            <figcaption>Learning-series measures</figcaption>
+            <dl>
+              <div><dt>Sessions</dt><dd>34</dd></div>
+              <div><dt>Registrations</dt><dd>1,412</dd></div>
+              <div><dt>Attendees</dt><dd>1,019</dd></div>
+              <div><dt>Avg. satisfaction</dt><dd>2.91 / 3</dd></div>
+            </dl>
+            <p class="note">Program participation and satisfaction measures for the whole series, not measured productivity gains or AI use.</p>
+          </figure>
         </div>
-        <h1 class="hero__headline" id="hero-headline">
-          Building AI that <em>does the work</em> humans shouldn't have to.
-        </h1>
-        <p class="hero__sub">
-          I design, build, and govern intelligent AI agents inside Microsoft 365 and Copilot Studio — turning hours of manual work into automated, measurable outcomes across IT, HR, Legal, and Learning.
-        </p>
-        <div class="hero__cta">
-          <a href="#agents" class="btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            View My AI Agents
-          </a>
-          <a href="#impact" class="btn-secondary">
-            See the Impact
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <div class="hero__stat-num" data-count="41" data-suffix="">0</div>
-            <div class="hero__stat-label">AI Agents Built</div>
+        <div class="aside">
+          <div id="delivered-wrap">
+            <p class="label">DELIVERED WORK</p>
+            <ul class="list" id="delivered"></ul>
           </div>
-          <div class="hero__stat">
-            <div class="hero__stat-num" data-count="7285" data-suffix="">0</div>
-            <div class="hero__stat-label">Projected Hours Saved / Year</div>
+          <div id="tools-wrap">
+            <p class="label">TOOLS</p>
+            <ul class="chips" id="tools"></ul>
           </div>
-          <div class="hero__stat">
-            <div class="hero__stat-num" data-count="158" data-suffix="%">0</div>
-            <div class="hero__stat-label">Projected Year-1 ROI</div>
+          <div class="scope">
+            <h4>Scope of this example</h4>
+            <p id="scope"></p>
           </div>
-          <div class="hero__stat">
-            <div class="hero__stat-num" data-count="5" data-suffix="">0</div>
-            <div class="hero__stat-label">Business Domains</div>
-          </div>
+          <a id="repo" href="#" hidden>View the public repository</a>
         </div>
       </div>
-    </div>
+    </article>
   </div>
 </section>
 
-<!-- IMPACT BAND -->
-<div class="impact-band" aria-label="Key impact metrics">
-  <div class="container impact-band__inner">
-    <div class="impact-item">
-      <div class="impact-item__num">~90%</div>
-      <div class="impact-item__label">Manual Effort Reduced</div>
-    </div>
-    <div class="impact-divider" aria-hidden="true"></div>
-    <div class="impact-item">
-      <div class="impact-item__num">500+</div>
-      <div class="impact-item__label">SCORM Modules Pilot</div>
-    </div>
-    <div class="impact-divider" aria-hidden="true"></div>
-    <div class="impact-item">
-      <div class="impact-item__num">1,457</div>
-      <div class="impact-item__label">Projected Conversions / Year</div>
-    </div>
-    <div class="impact-divider" aria-hidden="true"></div>
-    <div class="impact-item">
-      <div class="impact-item__num">Phase 1</div>
-      <div class="impact-item__label">Agent Governance Lead</div>
-    </div>
-    <div class="impact-divider" aria-hidden="true"></div>
-    <div class="impact-item">
-      <div class="impact-item__num">M365</div>
-      <div class="impact-item__label">Copilot Ecosystem</div>
-    </div>
-  </div>
-</div>
-
-<!-- AGENTS SECTION -->
-<section class="agents-section" id="agents" aria-labelledby="agents-title">
-  <div class="container">
-    <!-- Intro split layout -->
-    <div class="agents-intro reveal">
-      <div class="agents-intro__image">
-        <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/69ad3305-5d2c-4f59-8b49-8de137320ee1.png" alt="AI enablement team working together in a bright office" width="800" height="600" loading="lazy">
-      </div>
-      <div class="agents-intro__text">
-        <div class="section-header">
-          <p class="section-label">Featured Work</p>
-          <h2 class="section-title" id="agents-title">Top-Rated <em>AI Agents</em></h2>
-          <p class="section-desc">These are my highest-impact agents — each scored above 8/10 and currently in active deployment or formal pilot inside a Fortune-listed enterprise manufacturing client. Click any card to learn more.</p>
-        </div>
-        <p class="agents-intro__lead">
-          Every agent below was designed to solve a <strong>real problem</strong> experienced by real people — not a tech demo. From converting presentations in seconds to answering HR policy questions at midnight, these tools change how work gets done.
-        </p>
-        <div style="display:flex;gap:var(--space-6);">
-          <div>
-            <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;letter-spacing:-0.02em;color:var(--color-text);">13</div>
-            <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;color:var(--color-text-muted);">Agents Rated 8+</div>
-          </div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;letter-spacing:-0.02em;color:var(--color-text);">4</div>
-            <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;color:var(--color-text-muted);">Business Domains</div>
-          </div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;letter-spacing:-0.02em;color:var(--color-text);">100%</div>
-            <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;color:var(--color-text-muted);">Active or Piloting</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Domain filter tabs -->
-    <div class="domain-tabs" role="tablist" aria-label="Filter agents by domain">
-      <button class="domain-tab active" data-domain="all" role="tab" aria-selected="true">All Agents</button>
-      <button class="domain-tab" data-domain="docs" role="tab" aria-selected="false">📄 Documents</button>
-      <button class="domain-tab" data-domain="it" role="tab" aria-selected="false">⚙️ IT &amp; Process</button>
-      <button class="domain-tab" data-domain="hr" role="tab" aria-selected="false">👥 HR &amp; People</button>
-      <button class="domain-tab" data-domain="legal" role="tab" aria-selected="false">⚖️ Legal &amp; Gov</button>
-    </div>
-
-    <!-- Agent cards -->
-    <div class="agents-grid" id="agents-grid" role="list">
-      <!-- Populated by JS -->
-    </div>
+<section class="section" aria-labelledby="port-h">
+  <div class="wrap">
+    <h2 id="port-h">Portfolio examples</h2>
+    <p class="intro">Independent projects that show how I would approach a problem. They are separate from the workplace work above and are not production deployments.</p>
+    <ul class="port">
+      <li>
+        <span class="badge sim" style="align-self:flex-start">Portfolio simulation</span>
+        <h3>AI Opportunity Intake Workbench</h3>
+        <p>This project shows how I would structure AI use-case intake, scoring, review, and reporting. It is a simulation of an enterprise intake process, not a production deployment.</p>
+        <a href="https://github.com/Automater89/ai-opportunity-intake-workbench">View repository</a>
+      </li>
+      <li>
+        <span class="badge sim" style="align-self:flex-start">Portfolio governance example</span>
+        <h3>Policy Copilot Governance Demo</h3>
+        <p>This project outlines a narrow HR policy assistant, including source boundaries, human escalation, test planning, and proposed measures. It shows the controls I would define before a rollout, not a claim of production performance.</p>
+        <a href="https://github.com/Automater89/policy-copilot-governance-demo">View repository</a>
+      </li>
+      <li>
+        <span class="badge sim" style="align-self:flex-start">Portfolio process-design example</span>
+        <h3>Offboarding Process Redesign Case Pack</h3>
+        <p>This case pack shows how I approach offboarding requirements, process design, risks, and measurement. It is separate from my workplace Power Automate offboarding implementation and does not establish that every step shown was deployed.</p>
+        <a href="https://github.com/Automater89/offboarding-process-redesign-case-pack">View repository</a>
+      </li>
+      <li>
+        <span class="badge sim" style="align-self:flex-start">Portfolio framework</span>
+        <h3>AI Readiness Assessment</h3>
+        <p>A documentation-first framework for deciding whether a team is ready to adopt AI, scored across six dimensions with a go, fix-then-go, or no-go recommendation. It has not yet been run against a real team.</p>
+        <a href="https://github.com/Automater89/ai-readiness-assessment">View repository</a>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- IMPACT SECTION -->
-<section class="impact-section" id="impact" aria-labelledby="impact-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">Measurable Results</p>
-      <h2 class="section-title" id="impact-title">Impact by the <em>Numbers</em></h2>
-      <p class="section-desc">A mix of measured pilot results and projected Year-1 outcomes from agents currently deployed or piloting across a North America enterprise IT estate.</p>
+<section id="experience" class="band section" aria-labelledby="exp-h">
+  <div class="wrap exp">
+    <div>
+      <h2 id="exp-h">Experience</h2>
+      <p>My background spans benefits operations, employee support, and IT project delivery. I bring that operational perspective to AI enablement, workflow improvement, and process documentation.</p>
+      <p>I have worked with benefits data, vendor processes, employee communications, and cross-functional systems work. That experience helps me connect technology decisions with the people and processes they affect.</p>
     </div>
-    <div class="impact-grid">
-      <div class="impact-card impact-card--featured reveal">
-        <div class="impact-card__icon" style="background:var(--color-primary-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <div style="flex:1;">
-          <div class="impact-card__title">SmartDeck 2.0 — Flagship Agent</div>
-          <div class="impact-card__body">The most impactful agent in the portfolio. SmartDeck converts meeting notes, bullets, and raw content into on-brand executive presentations — automatically. Zero manual slide-building required. Projected to handle ~1,457 conversions per year and save over 7,285 labor hours annually, with a projected 158% ROI in Year 1.</div>
-        </div>
-        <div>
-          <div class="impact-card__metric">7,285 hrs</div>
-          <div class="impact-card__metric-label">Saved annually</div>
-        </div>
-      </div>
-      <div class="impact-card reveal">
-        <div class="impact-card__icon" style="background:var(--color-blue-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <div class="impact-card__title">LSM/SCORM Conversion Agent</div>
-        <div class="impact-card__body">Cuts e-learning content creation effort by ~90%. In pilot, it generated 500+ SCORM-compliant training modules — work that previously required instructional designers and weeks of production time.</div>
-        <div>
-          <div class="impact-card__metric">~90%</div>
-          <div class="impact-card__metric-label">Effort reduction in L&D</div>
-        </div>
-      </div>
-      <div class="impact-card reveal">
-        <div class="impact-card__icon" style="background:var(--color-success-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="impact-card__title">Employee Self-Service Assistant</div>
-        <div class="impact-card__body">One agent answering PTO questions, IT troubleshooting, and onboarding guidance — 24/7, no ticket required. Currently in formal pilot, targeting reduced helpdesk load across a North America enterprise IT estate.</div>
-        <div>
-          <div class="impact-card__metric">24/7</div>
-          <div class="impact-card__metric-label">Self-service availability</div>
-        </div>
-      </div>
-      <div class="impact-card reveal">
-        <div class="impact-card__icon" style="background:var(--color-gold-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        </div>
-        <div class="impact-card__title">Agent Governance Phase 1</div>
-        <div class="impact-card__body">Led the formal governance framework ensuring all 41 agents operate within enterprise compliance, security, and policy standards — a credential that demonstrates enterprise-readiness, not just technical creativity.</div>
-        <div>
-          <div class="impact-card__metric">41 agents</div>
-          <div class="impact-card__metric-label">Governed &amp; compliant</div>
-        </div>
-      </div>
-    </div>
+    <ol class="bridge" aria-label="How my experience connects">
+      <li><span class="n">01</span><div><strong>Benefits operations</strong><span class="d">Enrollment support, data audits, vendor coordination, employee education</span></div></li>
+      <li><span class="n">02</span><div><strong>Systems and IT project delivery</strong><span class="d">Requirements, Microsoft 365, Power Automate, process documentation</span></div></li>
+      <li><span class="n">03</span><div><strong>Enablement and adoption</strong><span class="d">Training content, user guidance, communications, user support</span></div></li>
+    </ol>
   </div>
 </section>
 
-<!-- DOMAIN SECTION -->
-<section class="domain-section" id="domains" aria-labelledby="domains-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">Portfolio Breadth</p>
-      <h2 class="section-title" id="domains-title">Five <em>Domains</em>, One Architect</h2>
-      <p class="section-desc">Across every corner of the enterprise, these agents solve problems that matter to people who don't think of themselves as "tech users."</p>
-    </div>
-    <div class="domain-grid">
-      <div class="domain-card reveal">
-        <div class="domain-card__count">13</div>
-        <div class="domain-card__name">Document &amp; Presentation</div>
-        <div class="domain-card__desc">SmartDeck ecosystem, SCORM conversion, DRP templates, training outlines, and more.</div>
-        <div class="domain-card__bar" style="background:var(--color-primary);width:100%;"></div>
-      </div>
-      <div class="domain-card reveal">
-        <div class="domain-card__count">14</div>
-        <div class="domain-card__name">IT &amp; Process Automation</div>
-        <div class="domain-card__desc">Helpdesk triage, workflow approvals, cloud vendor risk, PMO governance, and DR planning.</div>
-        <div class="domain-card__bar" style="background:var(--color-blue);width:100%;"></div>
-      </div>
-      <div class="domain-card reveal">
-        <div class="domain-card__count">8</div>
-        <div class="domain-card__name">HR &amp; Employee Services</div>
-        <div class="domain-card__desc">Self-service HR, benefits guidance, interview prep, meeting analysis, and sales enablement.</div>
-        <div class="domain-card__bar" style="background:var(--color-success);width:75%;"></div>
-      </div>
-      <div class="domain-card reveal">
-        <div class="domain-card__count">4</div>
-        <div class="domain-card__name">Legal &amp; Governance</div>
-        <div class="domain-card__desc">Corporate bylaw expertise, legal ops, regulatory compliance, and governance Q&amp;A.</div>
-        <div class="domain-card__bar" style="background:var(--color-gold);width:50%;"></div>
-      </div>
-      <div class="domain-card reveal">
-        <div class="domain-card__count">2</div>
-        <div class="domain-card__name">AI Enablement</div>
-        <div class="domain-card__desc">Prompt coaching and APM knowledge tools — teaching others to use AI effectively.</div>
-        <div class="domain-card__bar" style="background:oklch(0.55 0.15 320);width:40%;"></div>
-      </div>
-    </div>
+<section id="how" class="section" aria-labelledby="how-h">
+  <div class="wrap">
+    <h2 id="how-h">How I Work</h2>
+    <ol class="how">
+      <li><h3>Start with the process.</h3><p>Understand the work and responsibilities before choosing a tool.</p></li>
+      <li><h3>Choose a practical solution.</h3><p>Use AI where it fits and a straightforward workflow where it does not.</p></li>
+      <li><h3>Make the handoff clear.</h3><p>Document the process, testing, user guidance, and responsibilities.</p></li>
+      <li><h3>Separate plans from results.</h3><p>State what was built, what was tested, and what remains a proposal.</p></li>
+    </ol>
   </div>
 </section>
+</main>
 
-<!-- TOOLS TICKER -->
-<section class="tools-section" aria-label="Technologies and platforms">
-  <div class="container--narrow">
-    <div class="section-header reveal" style="text-align:center;">
-      <p class="section-label">Platforms &amp; Technologies</p>
-      <h2 class="section-title" style="text-align:center;">Built with the <em>M365 Ecosystem</em></h2>
+<section id="contact" class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2 id="contact-h">Let's talk about the work your team needs to improve.</h2>
+        <p>I'm interested in roles that connect AI enablement, HR technology, and practical process improvement. I'd welcome the chance to walk through the examples here and explain my contribution.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="mailto:wshelton89@gmail.com?subject=Portfolio%20inquiry">Email me</a>
+          <a class="btn btn-outline-light" href="https://www.linkedin.com/in/wallace-shelton-559b0364">LinkedIn</a>
+        </div>
+      </div>
+      <dl>
+        <div><dt>Location</dt><dd>Plymouth, MI</dd></div>
+        <div><dt>Email</dt><dd style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><a href="mailto:wshelton89@gmail.com?subject=Portfolio%20inquiry">wshelton89@gmail.com</a><button type="button" class="copy-btn" id="copy-email" aria-label="Copy email address">Copy</button></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/Automater89">github.com/Automater89</a></dd></div>
+      </dl>
     </div>
-  </div>
-  <div class="tools-scroll-wrap" aria-hidden="true">
-    <div class="tools-track" id="tools-track">
-      <!-- populated by JS -->
-    </div>
+    <footer class="footer">© 2026 Wes Shelton | AI Enablement and Project Delivery | Plymouth, MI</footer>
   </div>
 </section>
-
-<!-- JOURNEY TIMELINE -->
-<section class="timeline-section" id="journey" aria-labelledby="journey-title">
-  <div class="container--narrow">
-    <div class="section-header reveal">
-      <p class="section-label">How We Got Here</p>
-      <h2 class="section-title" id="journey-title">The <em>Journey</em></h2>
-      <p class="section-desc">From first agent to enterprise governance — this is how a portfolio of 41 AI agents came to life inside a Fortune-listed enterprise client.</p>
-    </div>
-    <div class="timeline" role="list">
-      <div class="timeline-item reveal" role="listitem">
-        <div class="timeline-dot" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-date">Early 2025</div>
-          <div class="timeline-title">First Agent — Proof of Concept</div>
-          <div class="timeline-desc">Built SmartDeck V.1 as an experimental proof that AI could replace manual slide creation. Validated the concept internally and earned buy-in for further development.</div>
-        </div>
-      </div>
-      <div class="timeline-item reveal" role="listitem">
-        <div class="timeline-dot" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-date">Mid 2025</div>
-          <div class="timeline-title">Portfolio Expansion Across Domains</div>
-          <div class="timeline-desc">Scaled from 1 to 20+ agents, branching from Documents into IT Helpdesk, HR, Legal, and process automation. Each agent addressed a specific, measurable pain point.</div>
-        </div>
-      </div>
-      <div class="timeline-item reveal" role="listitem">
-        <div class="timeline-dot" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-date">Late 2025</div>
-          <div class="timeline-title">SmartDeck 2.0 &amp; Multi-Agent Architecture</div>
-          <div class="timeline-desc">Evolved from single agents to an orchestrated ecosystem — the SmartDeck Router routes requests intelligently across Builder, Converter, and domain-specific agents.</div>
-        </div>
-      </div>
-      <div class="timeline-item reveal" role="listitem">
-        <div class="timeline-dot" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-date">Early 2026</div>
-          <div class="timeline-title">Agent Governance Phase 1 — Enterprise Adoption</div>
-          <div class="timeline-desc">Led formal governance rollout ensuring all 41 agents meet compliance, security, and policy standards. This phase formalized AI deployment as an enterprise capability, not just a side project.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA SECTION -->
-<section class="cta-section">
-  <div class="container--narrow">
-    <p class="section-label" style="text-align:center;">Get In Touch</p>
-    <h2 class="section-title" style="max-width:20ch;margin-inline:auto;text-align:center;">
-      Want to see what <em>your team</em> could do with this?
-    </h2>
-    <p>I've spent the last year figuring out what AI can actually do inside a real company — not in a lab, not in a pitch deck. If you're trying to get your team working smarter and spending less time on the stuff that shouldn't require a human, I'd love to talk.</p>
-    <div class="cta-buttons">
-      <a href="mailto:WShelton89@Gmail.com" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Get in Touch
-      </a>
-      <a href="https://www.linkedin.com/in/wallace-shelton-559b0364" class="btn-secondary" target="_blank" rel="noopener noreferrer">
-        View LinkedIn Profile
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container footer__inner">
-    <p class="footer__copy">© 2026 Wes Shelton · IT Project Manager &amp; AI Agent Architect · Denver, CO</p>
-    <p class="footer__tagline">41 agents. Real outcomes. Human impact.</p>
-  </div>
-</footer>
-
-<!-- MODAL -->
-<div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-  <div class="modal" id="modal">
-    <div class="modal__header">
-      <h3 class="modal__title" id="modal-title">Agent Detail</h3>
-      <button class="modal__close" id="modal-close" aria-label="Close dialog">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="modal__body" id="modal-body"></div>
-  </div>
-</div>
 
 <script>
-// ─── THEME TOGGLE ────────────────────────────────
 (function(){
-  const btn = document.querySelector('[data-theme-toggle]');
-  const html = document.documentElement;
-  let theme = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-  html.setAttribute('data-theme', theme);
-  const sunIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
-  const moonIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-  if(btn) {
-    btn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
-    btn.addEventListener('click', () => {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', theme);
-      btn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+  var CASES = {
+    learning: {
+      title: 'Enterprise Learning and AI Enablement', kind: 'work', kindLabel: 'Workplace program', status: '',
+      card: 'I led change-management work for an enterprise learning series and supported Copilot learning activities. My work included training content, communications, exercises, and user support.',
+      paras: ['The work connected learning sessions with the materials and support people needed to participate. I created or contributed to training outlines, exercises, communications, and regional program support.', 'The learning series recorded 34 sessions, 1,412 registrations, and 1,019 attendees, with average satisfaction of 2.91 out of 3. These are program participation and satisfaction measures, not measured productivity gains.'],
+      delivered: ['Training outlines', 'Exercises', 'Communications', 'Regional program support', 'User support'],
+      tools: ['Microsoft Copilot'], measures: true,
+      scope: 'The series covered broader enterprise learning, not only AI. Figures are program participation and satisfaction measures.'
+    },
+    scorm: {
+      title: 'SCORM and E-Learning Content Conversion', kind: 'work', kindLabel: 'Workplace project', status: 'Built and piloted with users',
+      card: 'I built and piloted a Copilot Studio solution for SCORM and e-learning content conversion. I also delivered testing materials, user guidance, and documentation to support learning-content migration.',
+      paras: ['The work covered a content-conversion solution and a supporting document-transformation workflow. I tested the solution, demonstrated it to stakeholders, and piloted it with users.', 'The deliverables included project documentation, user guidance, testing materials, process guidance, and conversion standards. This example describes the pilot and delivered materials, not a production rollout.'],
+      delivered: ['Project documentation', 'User guidance', 'Testing materials', 'Process guidance', 'Conversion standards'],
+      tools: ['Microsoft Copilot Studio'],
+      scope: 'A pilot with users and its delivered materials. Not a production rollout.'
+    },
+    offboarding: {
+      title: 'HR Offboarding Automation', kind: 'work', kindLabel: 'Workplace project', status: 'Built and deployed',
+      card: 'I built and deployed Power Automate workflows for HR offboarding. The work included HR and IT requirements, responsibilities, and testing plans.',
+      paras: ['I gathered requirements for the HR offboarding workflow and developed responsibilities, milestones, and testing plans. I built and deployed the Power Automate flow, which was used by another team member.'],
+      delivered: ['HR and IT requirements', 'Responsibilities and milestones', 'Testing plans', 'Deployed Power Automate flow'],
+      tools: ['Power Automate'],
+      scope: 'Describes the workflow as built and deployed during that project. It makes no claims about savings, volume, or current operations.'
+    },
+    library: {
+      title: 'IT Process Library', kind: 'work', kindLabel: 'Collaborative workplace project', status: 'Library built collaboratively',
+      card: 'I built a governed IT process library with Applications, Client Services, and Infrastructure teams. The work brought process documentation, swimlane diagrams, and Visio maps into a shared library.',
+      paras: ['I worked with the IT teams to organize a shared process library. Its documented scope covered 29 processes, at least 22 swimlane diagrams, and 16 unique Visio maps.', 'The library reflects collaborative work. These figures describe documentation coverage, not processes I independently authored, automated, or improved.'],
+      delivered: ['Shared process library', 'Process documentation', 'Swimlane diagrams', 'Visio process maps'],
+      tools: ['Visio'],
+      scope: 'Figures describe documentation coverage in a collaborative library. Original maps stay private.'
+    },
+    audits: {
+      title: 'Benefits Data Audits and Reporting', kind: 'summary', kindLabel: 'Experience summary', status: '',
+      card: 'I used Excel for benefits-side audits and reporting, including VLOOKUP checks after open enrollment and pivot-table summaries for Finance. I also audited weekly payroll results, including retirement-plan contributions.',
+      paras: ['My benefits work included checking payroll results as payroll was finalized, running post-open-enrollment audits with VLOOKUP, and summarizing benefit payment details for Finance. This is benefits-side audit experience, not payroll processing or payroll-system configuration.'],
+      delivered: ['Post-open-enrollment audits', 'Weekly payroll result checks, including retirement-plan contributions', 'Pivot-table summaries for Finance'],
+      tools: ['Excel', 'VLOOKUP', 'Pivot tables'],
+      scope: 'A summary of recurring benefits-side audit work, not a standalone product or payroll processing.'
+    },
+    tracker: {
+      title: 'Benefits Customer Service Tracker', kind: 'contrib', kindLabel: 'Workplace contribution', status: 'Cross-functional contribution',
+      card: 'I contributed to a cross-functional Benefits Customer Service Tracker on SharePoint with Power Automate routing and notifications. The tracker supported service intake and workload visibility.',
+      paras: ['My contribution was part of a cross-functional effort to support benefits service intake and workload visibility. I also defined intake UX standards and KPI frameworks covering first-response time, workload visibility, and resolution velocity.'],
+      delivered: ['Intake UX standards', 'KPI frameworks: first-response time, workload visibility, resolution velocity'],
+      tools: ['SharePoint', 'Power Automate'],
+      scope: 'A contribution to a team effort. The KPI frameworks are definitions, not measured improvements.'
+    },
+    intakeSim: {
+      title: 'AI Opportunity Intake Workbench', kind: 'sim', kindLabel: 'Portfolio simulation', status: '',
+      card: 'This project shows how I would structure AI use-case intake, scoring, review, and reporting. It is a simulation of an enterprise intake process, not a production deployment.',
+      paras: ['This project shows how I would structure AI use-case intake, scoring, review, and reporting. It is a simulation of an enterprise intake process, not a production deployment.'],
+      delivered: [], tools: [],
+      scope: 'A portfolio simulation built outside any employer environment.',
+      repo: 'https://github.com/Automater89/ai-opportunity-intake-workbench'
+    }
+  };
+  var LANES = {
+    ai: { label: 'AI Enablement', intro: 'I connect practical AI use cases with workflow design, documentation, and support for the people using the tools. My focus is on useful implementation and adoption.', order: ['learning', 'scorm', 'offboarding'] },
+    hr: { label: 'HR & Benefits Technology', intro: 'I bring benefits operations experience into systems and workflow improvement. My work connects business requirements, employee support, and practical automation.', order: ['offboarding', 'audits', 'library'] },
+    ops: { label: 'Benefits Operations', intro: 'My benefits work includes enrollment support, data audits, vendor coordination, and employee education. I use systems and process improvement to support that work.', order: ['audits', 'tracker', 'offboarding'] },
+    intake: { label: 'Intake & Process Governance', intro: 'For application portfolio and business analysis roles: how I organize process documentation and structure intake and review.', order: ['library', 'intakeSim'] }
+  };
+
+  var lane = 'ai', lastTrigger = null;
+  var $ = function(id){ return document.getElementById(id); };
+  function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function meta(c){
+    var m = document.createDocumentFragment();
+    m.appendChild(el('span', 'badge ' + c.kind, c.kindLabel));
+    if (c.status) m.appendChild(el('span', 'status', c.status));
+    return m;
+  }
+  function chips(list){
+    var ul = el('ul', 'chips'); ul.setAttribute('aria-label', 'Relevant tools');
+    list.forEach(function(t){ ul.appendChild(el('li', null, t)); });
+    return ul;
+  }
+
+  function renderLane(){
+    var L = LANES[lane];
+    $('lane-intro').textContent = L.intro;
+    document.querySelectorAll('[data-lane]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lane === lane ? 'true' : 'false'); });
+    var extra = document.querySelector('.lane-extra');
+    extra.textContent = lane === 'intake' ? 'Showing: Intake & Process Governance' : 'Also: Intake & Process Governance';
+    var ul = $('cards'); ul.innerHTML = '';
+    L.order.forEach(function(id){
+      var c = CASES[id];
+      var li = el('li', 'card');
+      var m = el('div', 'meta'); m.appendChild(meta(c)); li.appendChild(m);
+      li.appendChild(el('h3', null, c.title));
+      li.appendChild(el('p', 'copy', c.card));
+      if (c.tools.length) li.appendChild(chips(c.tools));
+      var b = el('button', 'card-btn', 'Read Case Study');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Read case study: ' + c.title);
+      b.addEventListener('click', function(){ lastTrigger = id; openCase(id); });
+      li.appendChild(b);
+      ul.appendChild(li);
     });
   }
+
+  function openCase(id){
+    var c = CASES[id];
+    $('back-text').textContent = 'Back to ' + LANES[lane].label + ' work';
+    var m = $('detail-meta'); m.innerHTML = ''; m.appendChild(meta(c));
+    $('detail-title').textContent = c.title;
+    var p = $('detail-paras'); p.innerHTML = '';
+    c.paras.forEach(function(t){ p.appendChild(el('p', null, t)); });
+    $('measures').hidden = !c.measures;
+    var d = $('delivered'); d.innerHTML = '';
+    c.delivered.forEach(function(t){ d.appendChild(el('li', null, t)); });
+    $('delivered-wrap').hidden = !c.delivered.length;
+    var t = $('tools'); t.innerHTML = '';
+    c.tools.forEach(function(x){ t.appendChild(el('li', null, x)); });
+    $('tools-wrap').hidden = !c.tools.length;
+    $('scope').textContent = c.scope;
+    var r = $('repo'); if (c.repo) { r.href = c.repo; r.hidden = false; } else { r.hidden = true; }
+    $('cards').hidden = true;
+    $('detail').hidden = false;
+    $('detail').scrollIntoView({ block: 'start' });
+    $('detail-title').focus({ preventScroll: true });
+  }
+
+  function closeCase(){
+    $('detail').hidden = true;
+    $('cards').hidden = false;
+    var btn = lastTrigger && document.querySelector('.card-btn[aria-label="Read case study: ' + CASES[lastTrigger].title + '"]');
+    $('work').scrollIntoView({ block: 'start' });
+    if (btn) btn.focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('[data-lane]').forEach(function(b){
+    b.addEventListener('click', function(){ lane = b.dataset.lane; $('detail').hidden = true; $('cards').hidden = false; renderLane(); });
+  });
+  $('back').addEventListener('click', closeCase);
+  $('copy-email').addEventListener('click', function(){
+    var b = $('copy-email');
+    try {
+      navigator.clipboard.writeText('wshelton89@gmail.com').then(function(){
+        b.textContent = 'Copied';
+        setTimeout(function(){ b.textContent = 'Copy'; }, 2000);
+      });
+    } catch (e) {}
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !$('detail').hidden) closeCase(); });
+  renderLane();
 })();
-
-// ─── AGENT DATA ──────────────────────────────────
-const agents = [
-  {
-    name: "SmartDeck 2.0",
-    domain: "docs",
-    score: "9.5",
-    status: "active",
-    color: "#006e74",
-    desc: "AI-powered presentation automation engine. Converts notes, bullets, and raw content into on-brand executive slides — automatically.",
-    impact: "~1,457 conversions/yr (projected) · 7,285 hrs saved",
-    fullDesc: "SmartDeck 2.0 is the flagship of the portfolio. It takes unstructured input — meeting notes, bullet points, rough drafts — and produces polished, on-brand Microsoft PowerPoint presentations aligned to the client's visual identity. With heading-to-slide mapping, intelligent content chunking, and brand rule enforcement baked in, it eliminates the most time-consuming part of executive communication.",
-    capabilities: ["Content → Slide Mapping", "Brand Enforcement", "Custom Templates", "Heading Detection", "Multi-format Input"],
-    roi: "~158% projected ROI",
-    platform: "Copilot Studio"
-  },
-  {
-    name: "LSM/SCORM Conversion Agent",
-    domain: "docs",
-    score: "9.0",
-    status: "pilot",
-    color: "#006e74",
-    desc: "Transforms raw training content into SCORM-compliant e-learning modules — cutting L&D production effort by ~90%.",
-    impact: "~500 SCORM files in pilot · 90% effort cut",
-    fullDesc: "This agent takes existing training materials — documents, outlines, slide decks — and converts them into SCORM-compliant e-learning modules ready for any LMS. In the current pilot, it has generated over 500 SCORM files that previously required instructional designers, authoring tools, and weeks of production time.",
-    capabilities: ["SCORM 1.2 / 2004 Output", "Auto-Quiz Generation", "Learning Objective Mapping", "LMS-Ready Packages", "Content Chunking"],
-    roi: "~90% production time saved",
-    platform: "Copilot Studio"
-  },
-  {
-    name: "SmartDeck Router",
-    domain: "docs",
-    score: "8.5",
-    status: "active",
-    color: "#006e74",
-    desc: "Multi-agent orchestration hub that detects user intent and routes requests to the right SmartDeck agent automatically.",
-    impact: "Orchestrates 3+ agents · Intent detection",
-    fullDesc: "The SmartDeck Router is the brain of the presentation ecosystem. It reads the user's natural language request, detects their intent (convert an existing deck vs. build from scratch vs. re-brand), and routes to the appropriate specialized agent. This orchestration pattern is an advanced architecture that mirrors enterprise AI workflow design.",
-    capabilities: ["Intent Classification", "Agent Routing", "Context Preservation", "Error Fallback", "Multi-Agent Orchestration"],
-    roi: "Single entry point for 3 agents",
-    platform: "Copilot Studio"
-  },
-  {
-    name: "Project Intelligence Agent",
-    domain: "it",
-    score: "9.0",
-    status: "active",
-    color: "#1a5c8a",
-    desc: "Multi-perspective risk analysis tool for IT Project Managers — surfaces risks, gaps, and recommendations across any active project.",
-    impact: "Multi-angle risk detection · PM decision support",
-    fullDesc: "Built for IT Project Managers, this agent analyzes project data from multiple perspectives simultaneously — schedule risk, resource constraints, stakeholder alignment, technical complexity — and synthesizes actionable recommendations. It's like having a senior PM advisor on call 24/7 who never gets tired of reading status reports.",
-    capabilities: ["Risk Detection", "Schedule Analysis", "Stakeholder Mapping", "Recommendation Engine", "Project Health Scoring"],
-    roi: "Faster, better-informed PM decisions",
-    platform: "M365 Copilot Agent Builder"
-  },
-  {
-    name: "IT Helpdesk Assistant",
-    domain: "it",
-    score: "8.5",
-    status: "pilot",
-    color: "#1a5c8a",
-    desc: "Autonomous ticket triage, password resets, VPN troubleshooting, and software FAQ — without opening a support ticket.",
-    impact: "Reduces helpdesk ticket volume · 24/7 coverage",
-    fullDesc: "This agent handles the most common categories of IT support requests — password resets, VPN configuration, software access issues, printer troubleshooting — autonomously, without requiring a human agent to intervene. Currently in formal pilot across a North America enterprise IT estate.",
-    capabilities: ["Ticket Triage", "Password Reset Guidance", "VPN Troubleshooting", "Software FAQ", "Escalation Routing"],
-    roi: "Reduced L1 ticket volume",
-    platform: "Copilot Studio"
-  },
-  {
-    name: "Workflow & Approvals Assistant",
-    domain: "it",
-    score: "8.5",
-    status: "active",
-    color: "#1a5c8a",
-    desc: "Policy-checked routing for purchase orders, invoices, and approvals — with a full audit trail built in.",
-    impact: "Automated PO/invoice routing · Audit trail",
-    fullDesc: "Automates the routing of purchase orders, invoices, and approval workflows through policy-compliant paths. Every action is logged with an audit trail, satisfying compliance requirements while eliminating the email chains and manual follow-ups that slow approvals down.",
-    capabilities: ["PO Routing", "Invoice Validation", "Policy Enforcement", "Audit Logging", "Escalation Management"],
-    roi: "Faster approvals, zero audit gaps",
-    platform: "M365 Copilot Agent Builder"
-  },
-  {
-    name: "Regional IT PMO Agent",
-    domain: "it",
-    score: "8.0",
-    status: "active",
-    color: "#1a5c8a",
-    desc: "PMO governance assistant for a North America enterprise IT PMO — tracks portfolio health, surfacing risks and resource conflicts.",
-    impact: "Regional IT portfolio governance · Risk visibility",
-    fullDesc: "Purpose-built for a North America enterprise IT PMO, this agent provides governance oversight across the active project portfolio. It tracks project health, flags resource conflicts, monitors milestone slippage, and generates executive-ready status summaries on demand.",
-    capabilities: ["Portfolio Health Tracking", "Resource Conflict Detection", "Milestone Monitoring", "Executive Reporting", "Risk Escalation"],
-    roi: "Enterprise PMO-grade governance",
-    platform: "M365 Copilot Agent Builder"
-  },
-  {
-    name: "Cloud Check Assistant",
-    domain: "it",
-    score: "8.0",
-    status: "active",
-    color: "#1a5c8a",
-    desc: "Standardizes cloud vendor risk assessment and compliance checks — ensuring every cloud tool meets enterprise security standards.",
-    impact: "Vendor risk standardization · Compliance",
-    fullDesc: "Provides structured, repeatable cloud vendor risk assessment aligned to the client's security and compliance framework. Every new cloud tool request goes through the same rigorous evaluation, ensuring nothing slips through the gaps.",
-    capabilities: ["Vendor Risk Scoring", "Compliance Checklist", "Security Policy Match", "Risk Report Generation", "Escalation Triggers"],
-    roi: "Consistent vendor risk posture",
-    platform: "Copilot Studio"
-  },
-  {
-    name: "Employee Self-Service Assistant",
-    domain: "hr",
-    score: "8.5",
-    status: "pilot",
-    color: "#3a7020",
-    desc: "One agent for PTO questions, IT troubleshooting, benefits guidance, and onboarding — available 24/7, no ticket required.",
-    impact: "24/7 self-service · Multi-domain coverage",
-    fullDesc: "A unified self-service experience that brings together HR, IT, and onboarding support in one place. Employees ask in plain language and get accurate, policy-compliant answers — any time of day, without waiting for a human agent.",
-    capabilities: ["PTO Policy Q&A", "Benefits Guidance", "IT Troubleshooting", "Onboarding Support", "Policy Lookup"],
-    roi: "Reduced support load, happier employees",
-    platform: "M365 Copilot Agent Builder"
-  },
-  {
-    name: "Salaried HR Agent",
-    domain: "hr",
-    score: "8.0",
-    status: "active",
-    color: "#3a7020",
-    desc: "Benefits, compensation, and HR policy Q&A for all salaried employees — with accurate, source-cited answers.",
-    impact: "Salaried employee HR coverage",
-    fullDesc: "Provides salaried employees with accurate, policy-grounded answers to benefits, compensation, performance, and HR process questions. Reduces the volume of routine HR inquiries that reach the HR team directly.",
-    capabilities: ["Benefits Q&A", "Compensation Guidance", "Policy Lookup", "Performance Process Support", "Source Citation"],
-    roi: "Reduced HR team inquiry volume",
-    platform: "M365 Copilot Agent Builder"
-  },
-  {
-    name: "Interview IQ",
-    domain: "hr",
-    score: "8.0",
-    status: "active",
-    color: "#3a7020",
-    desc: "Generates role-specific interview questions, evaluates resumes against job descriptions, and coaches candidates.",
-    impact: "Faster hiring · Better candidate experience",
-    fullDesc: "Supports hiring managers with role-specific interview question generation, resume-to-JD gap analysis, and candidate coaching resources. Shortens preparation time and improves interview quality across the organization.",
-    capabilities: ["Interview Question Generation", "Resume Evaluation", "JD Alignment Analysis", "Candidate Coaching", "Competency Mapping"],
-    roi: "Faster, fairer hiring process",
-    platform: "M365 Copilot Agent Builder"
-  },
-  {
-    name: "Corporate Bylaw Expert",
-    domain: "legal",
-    score: "8.5",
-    status: "active",
-    color: "#b07800",
-    desc: "Instant corporate governance Q&A — answers questions about corporate bylaws, policies, and governance procedures accurately.",
-    impact: "Used in Legal demos · Governance compliance",
-    fullDesc: "Provides instant, accurate answers to questions about the client's corporate bylaws, governance policies, and compliance procedures. Used in Legal department demonstrations and as a reference tool for employees navigating governance requirements.",
-    capabilities: ["Bylaw Lookup", "Policy Q&A", "Governance Procedures", "Compliance Guidance", "Source Citation"],
-    roi: "Instant governance answers at scale",
-    platform: "Copilot Studio"
-  },
-  {
-    name: "Legal Governance Copilot",
-    domain: "legal",
-    score: "8.0",
-    status: "active",
-    color: "#b07800",
-    desc: "Legal ops assistant for policy review, bylaw navigation, and governance workflow support for the Legal team.",
-    impact: "Legal team productivity · Governance workflows",
-    fullDesc: "A purpose-built assistant for an enterprise Legal team that streamlines policy review, governance navigation, and compliance workflow management. Reduces time spent on routine legal reference work so attorneys and paralegals can focus on higher-value tasks.",
-    capabilities: ["Policy Review Support", "Governance Navigation", "Document Summarization", "Workflow Assistance", "Compliance Tracking"],
-    roi: "Legal team productivity gains",
-    platform: "M365 Copilot Agent Builder"
-  }
-];
-
-// ─── RENDER AGENT CARDS ──────────────────────────
-function renderCards(filter = 'all') {
-  const grid = document.getElementById('agents-grid');
-  grid.innerHTML = '';
-  agents.forEach((a, i) => {
-    if (filter !== 'all' && a.domain !== filter) return;
-    const card = document.createElement('article');
-    card.className = 'agent-card reveal';
-    card.setAttribute('role', 'listitem');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `${a.name} — Score ${a.score}/10`);
-    card.innerHTML = `
-      <div class="agent-card__top" style="background:${a.color};"></div>
-      <div class="agent-card__body">
-        <div class="agent-card__header">
-          <h3 class="agent-card__name">${a.name}</h3>
-          <div class="agent-card__score" aria-label="Score ${a.score} out of 10">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            ${a.score}/10
-          </div>
-        </div>
-        <p class="agent-card__desc">${a.desc}</p>
-        <div class="agent-card__footer">
-          <span class="agent-card__impact"><strong>${a.impact.split('·')[0].trim()}</strong></span>
-          <span class="status-badge ${a.status === 'active' ? 'status-active' : 'status-pilot'}">${a.status === 'active' ? 'Active' : 'In Pilot'}</span>
-        </div>
-      </div>`;
-    card.addEventListener('click', () => openModal(a));
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(a); }});
-    grid.appendChild(card);
-  });
-}
-renderCards();
-
-// ─── DOMAIN TABS ─────────────────────────────────
-document.querySelectorAll('.domain-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.domain-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected','true');
-    renderCards(tab.dataset.domain);
-  });
-});
-
-// ─── MODAL ───────────────────────────────────────
-function openModal(agent) {
-  const backdrop = document.getElementById('modal-backdrop');
-  const title = document.getElementById('modal-title');
-  const body = document.getElementById('modal-body');
-  title.textContent = agent.name;
-  body.innerHTML = `
-    <p class="modal__desc">${agent.fullDesc}</p>
-    <div class="modal__meta">
-      <div class="modal__meta-item">
-        <div class="modal__meta-label">Score</div>
-        <div class="modal__meta-value">${agent.score} / 10</div>
-      </div>
-      <div class="modal__meta-item">
-        <div class="modal__meta-label">Status</div>
-        <div class="modal__meta-value">${agent.status === 'active' ? 'Active' : 'In Pilot'}</div>
-      </div>
-      <div class="modal__meta-item">
-        <div class="modal__meta-label">Platform</div>
-        <div class="modal__meta-value">${agent.platform}</div>
-      </div>
-      <div class="modal__meta-item">
-        <div class="modal__meta-label">ROI / Outcome</div>
-        <div class="modal__meta-value">${agent.roi}</div>
-      </div>
-    </div>
-    <div class="modal__capabilities">
-      <h4>Key Capabilities</h4>
-      <div class="modal__cap-list">${agent.capabilities.map(c => `<span class="modal__cap">${c}</span>`).join('')}</div>
-    </div>`;
-  backdrop.classList.add('open');
-  backdrop.removeAttribute('aria-hidden');
-  document.getElementById('modal-close').focus();
-}
-document.getElementById('modal-close').addEventListener('click', closeModal);
-document.getElementById('modal-backdrop').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-function closeModal() {
-  const backdrop = document.getElementById('modal-backdrop');
-  backdrop.classList.remove('open');
-  backdrop.setAttribute('aria-hidden','true');
-}
-
-// ─── STAT COUNTER ANIMATION ───────────────────────
-function animateCounter(el) {
-  const target = parseInt(el.dataset.count, 10);
-  const suffix = el.dataset.suffix || '';
-  const duration = 1600;
-  const start = performance.now();
-  function update(now) {
-    const elapsed = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - elapsed, 3);
-    const val = Math.round(eased * target);
-    el.textContent = val.toLocaleString() + suffix;
-    if (elapsed < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-const counters = document.querySelectorAll('[data-count]');
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }});
-}, { threshold: 0.5 });
-counters.forEach(c => counterObs.observe(c));
-
-// ─── TOOLS TICKER ────────────────────────────────
-const tools = [
-  { name: 'Microsoft Copilot', icon: 'https://cdn.simpleicons.org/microsoft/6264a7' },
-  { name: 'Copilot Studio', icon: 'https://cdn.simpleicons.org/microsoftazure/0078d4' },
-  { name: 'Power Automate', icon: 'https://cdn.simpleicons.org/microsoftazure/0066b8' },
-  { name: 'SharePoint', icon: 'https://cdn.simpleicons.org/microsoftsharepoint/0078d4' },
-  { name: 'Teams', icon: 'https://cdn.simpleicons.org/microsoftteams/6264a7' },
-  { name: 'M365', icon: 'https://cdn.simpleicons.org/microsoftoffice/d83b01' },
-  { name: 'Salesforce', icon: 'https://cdn.simpleicons.org/salesforce/00a1e0' },
-  { name: 'Azure', icon: 'https://cdn.simpleicons.org/microsoftazure/0078d4' },
-  { name: 'SCORM', icon: 'https://cdn.simpleicons.org/coursera/0056d2' },
-  { name: 'Power BI', icon: 'https://cdn.simpleicons.org/powerbi/f2c811' },
-  { name: 'OneDrive', icon: 'https://cdn.simpleicons.org/onedrive/0078d4' },
-  { name: 'Outlook', icon: 'https://cdn.simpleicons.org/microsoftoutlook/0078d4' },
-];
-const track = document.getElementById('tools-track');
-const doubled = [...tools, ...tools];
-doubled.forEach(t => {
-  const pill = document.createElement('div');
-  pill.className = 'tool-pill';
-  pill.innerHTML = `<img src="${t.icon}" alt="" width="18" height="18" loading="lazy"><span>${t.name}</span>`;
-  track.appendChild(pill);
-});
 </script>
 </body>
 </html>
